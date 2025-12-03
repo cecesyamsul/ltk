@@ -63,9 +63,9 @@ class DashboardController extends Controller
     public function export(Request $request)
     {
 
-        $startDate = $request->query('start_date'); // format: Y-m-d
-        $endDate = $request->query('end_date');     // format: Y-m-d
-        $statusOrder = $request->query('status_order'); // 0..6
+        $startDate = $request->query('start_date'); 
+        $endDate = $request->query('end_date');    
+        $statusOrder = $request->query('status_order');
 
         $query = Order::with('user')->latest();
 

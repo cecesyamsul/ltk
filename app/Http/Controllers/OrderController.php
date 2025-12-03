@@ -77,7 +77,7 @@ class OrderController extends Controller
 
    public function show($encryptedId)
 {
-    $id = Crypt::decryptString($encryptedId); // DEKRIP
+    $id = Crypt::decryptString($encryptedId); 
     $order = Order::findOrFail($id);
 
     return view('orders.show', compact('order'));

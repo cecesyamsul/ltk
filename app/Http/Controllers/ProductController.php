@@ -52,7 +52,7 @@ class ProductController extends Controller
             $imagePath = $request->image_url;
         }
 
-        // Jika user pilih Upload File
+        
         if ($request->image_type === 'file' && $request->hasFile('image_file')) {
             $imagePath = $request->file('image_file')->store('products', 'public');
             $imagePath = url('storage/' . $imagePath);
@@ -70,7 +70,7 @@ class ProductController extends Controller
             'harga' => $harga,
             'stok_awal' => $stok_awal,
             'stok' => $stok_awal,
-            'image_url' => $imagePath, // simpan path/url
+            'image_url' => $imagePath, 
         ]);
 
         return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan');
@@ -92,8 +92,8 @@ class ProductController extends Controller
             'harga' => 'required|string|max:20',
             'stok_awal' => 'required|numeric',
             'image_type' => 'required|in:url,file',
-            'image_url' => 'nullable|string', // jika tipe url
-            'image_file' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:2048', // jika upload file max 2MB
+            'image_url' => 'nullable|string', 
+            'image_file' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:2048', 
         ]);
         $harga = preg_replace('/[^0-9]/', '', $request->harga);
         $harga = (int) $harga;

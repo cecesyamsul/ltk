@@ -112,7 +112,7 @@ class ShopController extends Controller
             return redirect()->route('home')->with('error', 'Keranjang kosong.');
         }
 
-        // return view('checkout.process', compact('cart', 'isGuest'));
+       
         $cart = session('cart', []);
 
         $total = 0;
